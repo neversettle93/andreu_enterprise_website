@@ -1,0 +1,21 @@
+---
+interface Props {
+  variant?: "light" | "dark";
+  border?: boolean;
+  maxWidth?: "2xl" | "3xl" | "6xl";
+  class?: string;
+}
+
+const { variant = "light", border = false, maxWidth = "6xl", class: className } = Astro.props;
+const isDark = variant === "dark";
+const maxWidthClass = { "2xl": "max-w-2xl", "3xl": "max-w-3xl", "6xl": "max-w-6xl" }[maxWidth];
+---
+
+<section
+  class:list={["relative overflow-hidden", isDark && "bg-navy-950", border && "border-b border-navy-200/60"]}
+>
+  <div class:list={[isDark ? "bg-grid-dark" : "bg-grid-light", "pointer-events-none absolute inset-0"]}></div>
+  <div class:list={["relative mx-auto px-6", maxWidthClass, className]}>
+    <slot />
+  </div>
+</section>

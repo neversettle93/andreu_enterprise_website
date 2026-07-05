@@ -1,0 +1,40 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import BulletList from "./BulletList.astro";
+
+interface Props {
+  title: string;
+  context: string;
+  stat?: string;
+  statLabel?: string;
+  highlights: string[];
+  featured?: boolean;
+}
+
+const { title, context, stat, statLabel, highlights, featured = false } = Astro.props;
+
+const listClass = [
+  "mt-6 space-y-2 text-navy-600 leading-relaxed",
+  featured && "sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-2 sm:space-y-0",
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<article class:list={["rounded-2xl border border-navy-200/60 p-8", { "md:col-span-2": featured }]}>
+  <div class="flex flex-wrap items-start justify-between gap-6">
+    <div>
+      <Eyebrow text={context} />
+      <h3 class:list={["mt-3 font-semibold text-navy-900", featured ? "text-2xl" : "text-lg"]}>{title}</h3>
+    </div>
+    {
+      stat && (
+        <div class="shrink-0 text-right">
+          <p class="font-mono text-3xl font-semibold tracking-tight text-navy-900">{stat}</p>
+          {statLabel && <p class="mt-1 max-w-[10rem] text-xs text-navy-600">{statLabel}</p>}
+        </div>
+      )
+    }
+  </div>
+  <BulletList items={highlights} class={listClass} />
+</article>

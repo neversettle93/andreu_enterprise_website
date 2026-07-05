@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GridSection from "../components/GridSection.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import Button from "../components/Button.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+
+const caseStudies = [
+  {
+    featured: true,
+    title: "Dual-pipeline CRM architecture for a multi-country B2B SaaS platform",
+    context: "CRM & RevOps",
+    stat: "18+",
+    statLabel: "automated workflows shipped",
+    highlights: [
+      "Two pipelines built from scratch: new business and post-sale/renewal",
+      "Custom properties designed for multi-country reporting",
+      "Native invoicing added for accurate commission tracking",
+      "A CSV-based migration strategy to move existing data cleanly",
+    ],
+  },
+  {
+    title: "Multi-country financial reporting consolidation for a publishing company",
+    context: "Business Intelligence",
+    stat: "100",
+    statLabel: "Excel files consolidated",
+    highlights: [
+      "Consolidated files spanning 2020–2025 across 20 countries",
+      "Dynamic Top-N DAX measures built in Power BI",
+      "SharePoint integration for ongoing, self-updating reporting",
+    ],
+  },
+  {
+    title: "IAM security hardening for CI/CD pipelines in a production SaaS environment",
+    context: "Cloud & Security",
+    stat: "3",
+    statLabel: "AWS services hardened with least-privilege IAM",
+    highlights: [
+      "Least-privilege IAM policies designed for CircleCI pipelines",
+      "Coverage across Elastic Beanstalk deployments",
+      "Coverage across S3 and CloudFront distribution",
+    ],
+  },
+  {
+    title: "Help desk migration to a modern ticketing system",
+    context: "IT Operations",
+    highlights: [
+      "Migrated support intake from Microsoft 365 distribution lists",
+      "Moved to a structured, trackable ticketing system",
+      "Reduced dropped or lost support requests",
+    ],
+  },
+  {
+    title: "Validating the numbers before they reach leadership",
+    context: "Data Integrity",
+    highlights: [
+      "Builds Excel and Power BI models that cross-check calculated fields against source data before a report ships",
+      "Treats multi-country consolidation as a reconciliation exercise, not just a rollup — catching mismatches before they become decisions",
+      "Documents the validation logic so errors are traceable, not just fixed and forgotten",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Case Studies"
+  description="Real RevOps, CRM, automation, and IT projects delivered in a live, multi-country B2B SaaS environment — described here without client names for confidentiality."
+>
+  <GridSection border class="pt-24 pb-16">
+    <Eyebrow text="Case Studies" />
+    <h1 class="mt-6 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-navy-900 sm:text-6xl">
+      Proof of work, not a portfolio of slides.
+    </h1>
+    <p class="mt-6 max-w-2xl text-navy-600 leading-relaxed">
+      Every project below was delivered in a live operating environment.
+      Client names are withheld for confidentiality; the scope and outcomes
+      are described as they happened.
+    </p>
+  </GridSection>
+
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <h2 class="sr-only">Selected case studies</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      {caseStudies.map((study) => <CaseStudyCard {...study} />)}
+    </div>
+  </section>
+
+  <GridSection variant="dark" maxWidth="2xl" class="py-24 text-center">
+    <h2 class="text-4xl font-semibold tracking-tight text-white">Want results like these?</h2>
+    <p class="mt-4 text-navy-400">Let's talk about what's slowing your revenue engine down.</p>
+    <Button href="/contact" variant="inverse" class="mt-8">Get in touch</Button>
+  </GridSection>
+</BaseLayout>

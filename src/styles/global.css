@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #05070d;
+  --color-navy-900: #0a1628;
+  --color-navy-800: #131d33;
+  --color-navy-700: #1d2b48;
+  --color-navy-600: #33456b;
+  --color-navy-400: #6b7c9c;
+  --color-navy-200: #c4cddc;
+
+  --color-cobalt-600: #1b4fd8;
+  --color-cobalt-500: #2f5fe0;
+
+  --color-cyan-400: #00c2d4;
+  --color-cyan-300: #67e8f9;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    system-ui, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  @apply bg-white font-sans text-navy-900 antialiased;
+}
+
+.bg-grid-light {
+  background-image:
+    linear-gradient(to right, var(--color-navy-200) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-navy-200) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  opacity: 0.5;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, var(--color-navy-700) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-navy-700) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+  opacity: 0.6;
+}

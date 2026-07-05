@@ -1,0 +1,55 @@
+---
+import Button from "./Button.astro";
+---
+
+<form
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  method="POST"
+  class="mt-10 space-y-6"
+>
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+  <div class="grid gap-6 sm:grid-cols-2">
+    <div>
+      <label for="name" class="block text-sm font-medium text-navy-700">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        class="mt-2 w-full rounded-lg border border-navy-200 px-4 py-3 text-navy-900 focus:border-cobalt-500 focus:outline-none focus:ring-2 focus:ring-cobalt-500/30"
+      />
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-navy-700">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        class="mt-2 w-full rounded-lg border border-navy-200 px-4 py-3 text-navy-900 focus:border-cobalt-500 focus:outline-none focus:ring-2 focus:ring-cobalt-500/30"
+      />
+    </div>
+  </div>
+  <div>
+    <label for="company" class="block text-sm font-medium text-navy-700">Company</label>
+    <input
+      type="text"
+      name="company"
+      id="company"
+      class="mt-2 w-full rounded-lg border border-navy-200 px-4 py-3 text-navy-900 focus:border-cobalt-500 focus:outline-none focus:ring-2 focus:ring-cobalt-500/30"
+    />
+  </div>
+  <div>
+    <label for="message" class="block text-sm font-medium text-navy-700">
+      What are you looking to solve?
+    </label>
+    <textarea
+      name="message"
+      id="message"
+      rows="5"
+      required
+      class="mt-2 w-full rounded-lg border border-navy-200 px-4 py-3 text-navy-900 focus:border-cobalt-500 focus:outline-none focus:ring-2 focus:ring-cobalt-500/30"
+    ></textarea>
+  </div>
+  <Button type="submit">Send message</Button>
+</form>

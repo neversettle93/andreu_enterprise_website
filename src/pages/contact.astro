@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GridSection from "../components/GridSection.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Andreu Enterprise Technology to discuss RevOps, CRM, AI automation, or IT management for your B2B company."
+>
+  <GridSection maxWidth="3xl" class="py-24">
+    <Eyebrow text="Contact" />
+    <h1 class="mt-6 text-5xl font-semibold tracking-tight text-navy-900 sm:text-6xl">
+      Tell me what's not working.
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-navy-600 leading-relaxed">
+      Whether it's a RevOps architecture that's outgrown itself, a CRM
+      migration, or repetitive work that should be automated — share a few
+      details and I'll follow up directly.
+    </p>
+    <ContactForm />
+  </GridSection>
+</BaseLayout>

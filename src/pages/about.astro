@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GridSection from "../components/GridSection.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import BulletList from "../components/BulletList.astro";
+
+const timeline = [
+  {
+    period: "2024—Now",
+    role: "IT & Project Manager",
+    detail: "A multi-country B2B SaaS digital platform, plus Andreu Enterprise Technology",
+  },
+  { period: "2023—2024", role: "Network Specialist", detail: "El Dorado Furniture, Miami" },
+  { period: "2018—2021", role: "Founder, IT Workshop", detail: "Todomovil, Cuba" },
+  { period: "2013—2017", role: "Network Administrator", detail: "Tecnosime, Cuba" },
+];
+
+const frameworks = [
+  "Winning by Design — Bowtie, SPICED, CS Operating Model",
+  "Revenue Performance Model (RPM)",
+  "Customer Journey Mapping",
+  "HubSpot Sales Software (certified)",
+  "HubSpot Revenue Operations (certified)",
+];
+
+const tools = [
+  "HubSpot (Service Enterprise administrator)",
+  "Claude Code (agentic coding workflows)",
+  "Power BI (DAX, multi-country dashboards)",
+  "Microsoft Entra ID / Azure AD",
+  "AWS (VPC, EC2, Elastic Beanstalk, S3, CloudFront, IAM)",
+  "Claude, ChatGPT, Gemini — used daily for technical and strategic work",
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Alejandro Andreu Salgado bridges revenue strategy and technical execution for B2B companies, working daily with AI as a genuine capability multiplier."
+>
+  <GridSection border class="pt-24 pb-16">
+    <Eyebrow text="About" />
+    <h1 class="mt-6 text-6xl font-semibold tracking-tight text-navy-900 sm:text-7xl">
+      Alejandro Andreu Salgado
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg text-navy-600 leading-relaxed">
+      A technology generalist with real depth in RevOps, automation, and
+      SaaS operations — based in Miami, FL, bilingual in English and
+      Spanish, with a background in Automation Engineering (CUJAE).
+    </p>
+    <p class="mt-4 max-w-2xl text-navy-600 leading-relaxed">
+      Alejandro is not a software developer by trade, but works highly
+      effectively alongside AI tools to deliver technical outcomes —
+      treating AI as a genuine capability extender, not a shortcut. That
+      combination lets him move fluidly between revenue strategy and
+      hands-on technical execution: discussing NRR metrics and pipeline
+      architecture with a CRO in the morning, then configuring CI/CD
+      permissions or a Power BI dashboard in the afternoon.
+    </p>
+  </GridSection>
+
+  <GridSection variant="dark" class="py-24">
+    <h2 class="text-4xl font-semibold tracking-tight text-white">Career path</h2>
+    <div class="mt-12 divide-y divide-navy-700 border-t border-navy-700">
+      {
+        timeline.map((step) => (
+          <div class="grid gap-2 py-6 sm:grid-cols-12 sm:items-baseline sm:gap-6">
+            <p class="font-mono text-lg text-cyan-400 sm:col-span-3">{step.period}</p>
+            <p class="font-medium text-white sm:col-span-4">{step.role}</p>
+            <p class="text-sm text-navy-400 sm:col-span-5">{step.detail}</p>
+          </div>
+        ))
+      }
+    </div>
+  </GridSection>
+
+  <section class="mx-auto max-w-6xl px-6 py-24">
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-semibold tracking-tight text-navy-900">Frameworks &amp; certifications</h2>
+        <BulletList items={frameworks} class="mt-6 space-y-3 text-navy-600 leading-relaxed" />
+      </div>
+      <div>
+        <h2 class="text-3xl font-semibold tracking-tight text-navy-900">Tools in daily use</h2>
+        <BulletList items={tools} class="mt-6 space-y-3 text-navy-600 leading-relaxed" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

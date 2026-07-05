@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100" role="img" aria-label="Andreu Enterprise Technology">
+  <defs><clipPath id="tc"><rect x="6" y="6" width="88" height="88" rx="18"></rect></clipPath></defs>
+  <g clip-path="url(#tc)">
+    <rect x="6" y="6" width="88" height="88" fill="#1B4FD8"></rect>
+    <polygon points="6,6 94,6 94,94" fill="#0A1628"></polygon>
+  </g>
+  <polyline points="30,72 50,30 70,72" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round"></polyline>
+  <line x1="39" y1="66" x2="59" y2="46" stroke="#00C2D4" stroke-width="5" stroke-linecap="round"></line>
+  <polygon points="62,43 49.5,45 57,52.5" fill="#00C2D4"></polygon>
+</svg>

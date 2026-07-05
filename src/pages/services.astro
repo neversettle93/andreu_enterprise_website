@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GridSection from "../components/GridSection.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import BulletList from "../components/BulletList.astro";
+import Button from "../components/Button.astro";
+
+const services = [
+  {
+    index: "01",
+    title: "RevOps Implementation",
+    description:
+      "Design and implementation of end-to-end Revenue Operations architecture in HubSpot.",
+    details: [
+      "Pipeline design across the full customer lifecycle",
+      "Workflow automation for handoffs, alerts, and renewal cycles",
+      "A shared data dictionary so sales, CS, and finance report from the same definitions",
+      "Revenue reporting built for leadership visibility, not just activity tracking",
+    ],
+  },
+  {
+    index: "02",
+    title: "CRM Setup & Migration",
+    description:
+      "Getting a CRM to actually reflect how the business sells and retains customers.",
+    details: [
+      "Data migration strategy and clean property architecture",
+      "Conditional logic that matches real sales and CS processes",
+      "Two-pipeline architectures covering new business and post-sale/renewal",
+      "A sales-team adoption plan so the new system gets used, not worked around",
+    ],
+  },
+  {
+    index: "03",
+    title: "AI & Automation Consulting",
+    description:
+      "Reducing manual, repetitive work with automation and applied AI.",
+    details: [
+      "Automation workflows built in n8n",
+      "AI tooling integrated into existing business processes",
+      "AI-assisted Business Intelligence dashboards in Power BI",
+      "Multi-country reporting and data consolidation for commercial decisions",
+    ],
+  },
+  {
+    index: "04",
+    title: "IT Management for SaaS",
+    description:
+      "Day-to-day IT operations for growing SaaS companies.",
+    details: [
+      "Identity and access management (Microsoft Entra ID / Azure AD)",
+      "Networking and security",
+      "Technical support and Microsoft 365 administration",
+      "Collaboration tooling setup and maintenance",
+    ],
+  },
+];
+
+const approach = [
+  {
+    step: "01",
+    phase: "Diagnose",
+    description: "A Revenue Engine Diagnostic to understand where the current process breaks down.",
+  },
+  {
+    step: "02",
+    phase: "Design",
+    description: "Architecture grounded in the Revenue Performance Model and Winning by Design's Bowtie/SPICED framework.",
+  },
+  {
+    step: "03",
+    phase: "Build",
+    description: "Implementation in the CRM and automation layer, not just a slide deck.",
+  },
+  {
+    step: "04",
+    phase: "Adopt",
+    description: "A rollout plan the team will actually use, with training where needed.",
+  },
+  {
+    step: "05",
+    phase: "Operate",
+    description: "Ongoing reporting and iteration once the system is live.",
+  },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="RevOps implementation, CRM setup and migration, AI and automation consulting, and IT management for SaaS companies."
+>
+  <GridSection border class="pt-24 pb-16">
+    <Eyebrow text="Services" />
+    <h1 class="mt-6 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-navy-900 sm:text-6xl">
+      Four ways to close the gap between revenue strategy and execution.
+    </h1>
+  </GridSection>
+
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="divide-y divide-navy-200/60 border-b border-navy-200/60">
+      {
+        services.map((service) => (
+          <div class="grid gap-8 py-14 md:grid-cols-12">
+            <div class="md:col-span-4">
+              <span class="font-mono text-sm text-navy-600">{service.index}</span>
+              <h2 class="mt-3 text-3xl font-semibold tracking-tight text-navy-900">{service.title}</h2>
+              <p class="mt-3 text-navy-600 leading-relaxed">{service.description}</p>
+            </div>
+            <BulletList items={service.details} class="grid gap-4 text-navy-600 leading-relaxed sm:grid-cols-2 md:col-span-8" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <GridSection variant="dark" class="py-24">
+    <h2 class="text-4xl font-semibold tracking-tight text-white">How engagements are structured</h2>
+    <p class="mt-4 max-w-2xl text-navy-400">
+      A five-phase approach that combines the Revenue Performance Model,
+      Winning by Design's Bowtie/SPICED framework, and a Revenue Engine
+      Diagnostic — refined across multiple RevOps implementations.
+    </p>
+    <ol class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+      {
+        approach.map((item) => (
+          <li class="border-t border-navy-700 pt-5">
+            <p class="font-mono text-3xl font-semibold text-cyan-400">{item.step}</p>
+            <p class="mt-2 font-medium text-white">{item.phase}</p>
+            <p class="mt-2 text-sm text-navy-400 leading-relaxed">{item.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </GridSection>
+
+  <section class="mx-auto max-w-6xl px-6 py-24 text-center">
+    <h2 class="text-4xl font-semibold tracking-tight text-navy-900">Have a specific problem in mind?</h2>
+    <p class="mt-4 text-navy-600">Tell me what's not working and let's figure out the fastest path to fix it.</p>
+    <Button href="/contact" variant="primary" class="mt-8">Get in touch</Button>
+  </section>
+</BaseLayout>
