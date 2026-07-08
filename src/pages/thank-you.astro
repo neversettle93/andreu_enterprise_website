@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GridSection from "../components/GridSection.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout
+  title="Thank you"
+  description="Your message has been received. Andreu Enterprise Technology will follow up directly."
+>
+  <GridSection maxWidth="3xl" class="py-24">
+    <Eyebrow text="Message sent" />
+    <h1 class="mt-6 text-5xl font-semibold tracking-tight text-navy-900 sm:text-6xl">
+      Thanks — got it.
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-navy-600 leading-relaxed">
+      Your message is in. I'll follow up directly within one business day.
+    </p>
+    <Button href="/" class="mt-10">Back to home</Button>
+  </GridSection>
+</BaseLayout>

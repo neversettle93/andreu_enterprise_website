@@ -30,15 +30,18 @@ full stack rationale and design constraints.
 | `npx astro check` | Type-check all `.astro` files |
 | `npm run astro ...` | Run other Astro CLI commands (e.g. `astro add`) |
 
-## Before going live
+## Deployment
 
-- `src/components/ContactForm.astro` posts to a placeholder Formspree
-  endpoint (`https://formspree.io/f/YOUR_FORM_ID`). Replace it with a real
-  Formspree or Web3Forms endpoint before launch. The form already includes a
-  honeypot field (`_gotcha`) for basic spam protection; once the real
-  endpoint is set, consider also adding a `_next` hidden input pointing to a
-  thank-you page on the live domain so submitters stay on-site.
-- No `site` is set in `astro.config.mjs` yet, so Open Graph tags render
-  without a canonical URL. Add `site: "https://yourdomain.com"` once the
-  domain is final.
-- Deploy target is Cloudflare Pages (static output, no adapter needed).
+- Hosted on **Cloudflare Pages** (static output, no adapter needed), with
+  Git integration: pushes to `main` deploy to production, other branches/PRs
+  get automatic preview URLs.
+- Production domain: `https://andreuenterprise.com`, set as `site` in
+  `astro.config.mjs`. `BaseLayout.astro` builds canonical/OG/Twitter image
+  URLs from `Astro.site`, so they stay correct if the domain ever changes.
+- `src/components/ContactForm.astro` posts to a live Formspree endpoint and
+  redirects to `/thank-you` on success via a `_next` hidden field. Includes a
+  honeypot field (`_gotcha`) for basic spam protection.
+- `public/_headers` sets baseline security headers (Cloudflare Pages reads
+  this file automatically, no build step involved).
+- `@astrojs/sitemap` generates `sitemap-index.xml` on every build;
+  `public/robots.txt` points to it.

@@ -9,6 +9,9 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL("/og-image.png", Astro.site);
 ---
 
 <html lang="en">
@@ -25,15 +28,17 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title} · Andreu Enterprise Technology</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Andreu Enterprise Technology" />
     <meta property="og:title" content={`${title} · Andreu Enterprise Technology`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:url" content={canonicalURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} · Andreu Enterprise Technology`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body class="flex min-h-screen flex-col">
     <Nav />
