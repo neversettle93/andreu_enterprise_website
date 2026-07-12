@@ -24,3 +24,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local screenshots (deploy dashboards, etc.) — not site assets, may contain
+# account emails/DNS records; never commit
+screenshots/
+brand-assets/Screenshot*.png
